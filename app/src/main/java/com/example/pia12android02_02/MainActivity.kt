@@ -7,20 +7,24 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    var minsiffre = 0
+    private var minsiffre = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var mintext =findViewById<TextView>(R.id.Fancytext)
+        val mintext =findViewById<TextView>(R.id.Fancytext)
         mintext.text = "bananaaa"
 
-        var minknapp = findViewById<Button>(R.id.button)
+        val minknapp = findViewById<Button>(R.id.button)
         minknapp.setOnClickListener {
 
-            minsiffre = minsiffre + 1
+            minsiffre += 1
+
+            if (minsiffre > 10) {
+                minsiffre = 0
+            }
 
             mintext.text = minsiffre.toString() }
 
